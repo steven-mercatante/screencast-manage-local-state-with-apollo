@@ -14,7 +14,7 @@ const cache = new InMemoryCache();
 
 const defaults = {
   textColor: {
-    value: "red",
+    value: "green",
     __typename: "TextColor"
   }
 };
