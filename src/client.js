@@ -25,9 +25,7 @@ export const GET_TEXT_COLOR = gql`
 const resolvers = {
   Mutation: {
     setTextColor: (_, { color }, { cache }) => {
-      const data = {
-        textColor: color
-      };
+      const data = { textColor: color };
       cache.writeData({ data });
       return color;
     }

@@ -32,25 +32,33 @@ const setTextColor = color =>
   });
 
 const TextControls = () => (
-  <div>
-    <p>Set text color:</p>
-    <RadioGroup name="textColor" onChange={color => setTextColor(color)}>
-      <Radio value="yellow" id="yellow" />
-      <label htmlFor="yellow" className="yellow">
-        yellow
-      </label>
+  <Query query={GET_TEXT_COLOR}>
+    {({ data }) => (
+      <div>
+        <p>Set text color:</p>
+        <RadioGroup
+          name="textColor"
+          onChange={color => setTextColor(color)}
+          selectedValue={data.textColor}
+        >
+          <Radio value="yellow" id="yellow" />
+          <label htmlFor="yellow" className="yellow">
+            yellow
+          </label>
 
-      <Radio value="green" id="green" />
-      <label htmlFor="green" className="green">
-        green
-      </label>
+          <Radio value="green" id="green" />
+          <label htmlFor="green" className="green">
+            green
+          </label>
 
-      <Radio value="orange" id="orange" />
-      <label htmlFor="orange" className="orange">
-        orange
-      </label>
-    </RadioGroup>
-  </div>
+          <Radio value="orange" id="orange" />
+          <label htmlFor="orange" className="orange">
+            orange
+          </label>
+        </RadioGroup>
+      </div>
+    )}
+  </Query>
 );
 
 const App = () => (
