@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
-  background-color: #232323;
-  color: #fff;
+  background-color: #efefef;
+  color: #333;
 }
 
 input {
@@ -12,14 +12,14 @@ label {
   margin-right: 1rem;
 }
 
-.yellow {
-  color: #ffe400;
+.blue {
+  color: #1073cf;
 }
 
 .green {
-  color: #14a76c;
+  color: #1ca30a;
 }
 
-.orange {
-  color: #ff652e;
+.red {
+  color: #ff3c3d;
 }

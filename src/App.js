@@ -11,7 +11,7 @@ const Header = () => (
   <header>
     <Query query={GET_TEXT_COLOR}>
       {({ data }) => {
-        return <h2 className={data.textColor}>I am the header</h2>;
+        return <h2 className={data.textColor}>I'm a {data.textColor} title</h2>;
       }}
     </Query>
   </header>
@@ -41,9 +41,9 @@ const TextControls = () => (
           onChange={color => setTextColor(color)}
           selectedValue={data.textColor}
         >
-          <Radio value="yellow" id="yellow" />
-          <label htmlFor="yellow" className="yellow">
-            yellow
+          <Radio value="blue" id="blue" />
+          <label htmlFor="blue" className="blue">
+            blue
           </label>
 
           <Radio value="green" id="green" />
@@ -51,9 +51,9 @@ const TextControls = () => (
             green
           </label>
 
-          <Radio value="orange" id="orange" />
-          <label htmlFor="orange" className="orange">
-            orange
+          <Radio value="red" id="red" />
+          <label htmlFor="red" className="red">
+            red
           </label>
         </RadioGroup>
       </div>
