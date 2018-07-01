@@ -18,9 +18,14 @@ const TextControls = () => (
       name="textColor"
       onChange={color => console.log(`Set the color to ${color}`)}
     >
-      <Radio value="red" />Red
-      <Radio value="blue" />Blue
-      <Radio value="green" />Green
+      <Radio value="red" id="red" />
+      <label for="red">Red</label>
+
+      <Radio value="blue" id="blue" />
+      <label for="blue">Blue</label>
+
+      <Radio value="green" id="green" />
+      <label for="green">Green</label>
     </RadioGroup>
   </div>
 );
