@@ -3,9 +3,17 @@ import React from "react";
 import { RadioGroup, Radio } from "react-radio-group";
 import client from "./client";
 
+import { Query } from "react-apollo";
+import { GET_TEXT_COLOR } from "./client";
+
 const Header = () => (
   <header>
-    <h2>I am the header</h2>
+    <Query query={GET_TEXT_COLOR}>
+      {({ data }) => {
+        console.log(data);
+        return <h2 className={data.textColor}>I am the header</h2>;
+      }}
+    </Query>
   </header>
 );
 
@@ -19,17 +27,17 @@ const TextControls = () => (
       onChange={color => console.log(`Set the color to ${color}`)}
     >
       <Radio value="yellow" id="yellow" />
-      <label for="yellow" className="yellow">
+      <label htmlFor="yellow" className="yellow">
         yellow
       </label>
 
       <Radio value="green" id="green" />
-      <label for="green" className="green">
+      <label htmlFor="green" className="green">
         green
       </label>
 
       <Radio value="orange" id="orange" />
-      <label for="orange" className="orange">
+      <label htmlFor="orange" className="orange">
         orange
       </label>
     </RadioGroup>
