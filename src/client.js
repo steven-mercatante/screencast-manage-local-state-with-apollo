@@ -1,9 +1,9 @@
 import { ApolloClient } from "apollo-client";
+import { ApolloLink } from "apollo-link";
 import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import gql from "graphql-tag";
 import { withClientState } from "apollo-link-state";
-import { ApolloLink } from "apollo-link";
+import gql from "graphql-tag";
 
 // Pretend we've got a GraphQL server running locally...
 const httpLink = createHttpLink({
@@ -13,21 +13,27 @@ const httpLink = createHttpLink({
 const cache = new InMemoryCache();
 
 const defaults = {
-  textColor: "green"
+  textColor: {
+    value: "red",
+    __typename: "TextColor"
+  }
 };
 
 export const GET_TEXT_COLOR = gql`
   {
-    textColor @client
+    textColor @client {
+      value
+    }
   }
 `;
 
 const resolvers = {
   Mutation: {
     setTextColor: (_, { color }, { cache }) => {
-      const data = { textColor: color };
+      const newTextColor = { value: color, __typename: "TextColor" };
+      const data = { textColor: newTextColor };
       cache.writeData({ data });
-      return color;
+      return newTextColor;
     }
   }
 };
@@ -39,7 +45,6 @@ const stateLink = withClientState({
 });
 
 const client = new ApolloClient({
-  // link: httpLink,
   link: ApolloLink.from([stateLink, httpLink]),
   cache
 });
