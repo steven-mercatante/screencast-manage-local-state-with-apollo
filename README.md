@@ -5,3 +5,11 @@
 - Add default state
 
 - Install deps (graphql-tag?, apollo-link, apollo-link-state)
+
+## Steps
+
+((show App.js))
+
+I've got a basic React app that has a few nested components. It has access to an Apollo client via the ApolloProvider component. We want to control the text color of the header with these radio buttons. We can manage this state using Apollo.
+
+((switch to client.js))

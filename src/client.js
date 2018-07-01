@@ -12,6 +12,7 @@ const httpLink = createHttpLink({
 
 const cache = new InMemoryCache();
 
+// By settings defaults, we don't need to define explicit Query operations
 const defaults = {
   textColor: {
     value: "green",
