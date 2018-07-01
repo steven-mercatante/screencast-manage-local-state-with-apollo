@@ -22,7 +22,17 @@ export const GET_TEXT_COLOR = gql`
   }
 `;
 
-const resolvers = {}; // TODO: fill this out
+const resolvers = {
+  Mutation: {
+    setTextColor: (_, { color }, { cache }) => {
+      const data = {
+        textColor: color
+      };
+      cache.writeData({ data });
+      return color;
+    }
+  }
+};
 
 const stateLink = withClientState({
   cache,

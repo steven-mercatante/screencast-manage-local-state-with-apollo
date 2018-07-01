@@ -5,12 +5,12 @@ import client from "./client";
 
 import { Query } from "react-apollo";
 import { GET_TEXT_COLOR } from "./client";
+import gql from "graphql-tag";
 
 const Header = () => (
   <header>
     <Query query={GET_TEXT_COLOR}>
       {({ data }) => {
-        console.log(data);
         return <h2 className={data.textColor}>I am the header</h2>;
       }}
     </Query>
@@ -19,13 +19,22 @@ const Header = () => (
 
 const ControlPanel = ({ children }) => <div>{children}</div>;
 
+const setTextColor = color =>
+  client.mutate({
+    mutation: gql`
+      mutation SetTextColor($color: String!) {
+        setTextColor(color: $color) @client {
+          textColor
+        }
+      }
+    `,
+    variables: { color }
+  });
+
 const TextControls = () => (
   <div>
     <p>Set text color:</p>
-    <RadioGroup
-      name="textColor"
-      onChange={color => console.log(`Set the color to ${color}`)}
-    >
+    <RadioGroup name="textColor" onChange={color => setTextColor(color)}>
       <Radio value="yellow" id="yellow" />
       <label htmlFor="yellow" className="yellow">
         yellow
