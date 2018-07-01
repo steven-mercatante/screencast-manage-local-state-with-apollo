@@ -4,6 +4,22 @@ body {
   color: #fff;
 }
 
+input {
+  margin-right: 0.5rem;
+}
+
 label {
   margin-right: 1rem;
+}
+
+.yellow {
+  color: #ffe400;
+}
+
+.green {
+  color: #14a76c;
+}
+
+.orange {
+  color: #ff652e;
 }
