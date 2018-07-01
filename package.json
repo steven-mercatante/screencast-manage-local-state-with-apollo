@@ -10,6 +10,7 @@
     "react": "^16.4.1",
     "react-apollo": "^2.1.8",
     "react-dom": "^16.4.1",
+    "react-radio-group": "^3.0.3",
     "react-scripts": "1.1.4"
   },
   "scripts": {
