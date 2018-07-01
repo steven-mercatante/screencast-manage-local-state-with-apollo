@@ -1,21 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ApolloProvider } from "react-apollo";
+import client from "./client";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+const Header = () => <header>I am the header</header>;
+
+const ControlPanel = ({ children }) => <div>{children}</div>;
+
+const TextControls = () => <div>text controls</div>;
+
+const App = () => (
+  <ApolloProvider client={client}>
+    <div>
+      <Header />
+      <ControlPanel>
+        <TextControls />
+      </ControlPanel>
+    </div>
+  </ApolloProvider>
+);
 
 export default App;
