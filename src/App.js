@@ -35,7 +35,6 @@ const setTextColor = color =>
   });
 
 const TextControls = props => {
-  console.log(props);
   return (
     <Query query={GET_TEXT_COLOR}>
       {({ data }) => (
